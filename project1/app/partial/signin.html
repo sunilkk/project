@@ -1,0 +1,53 @@
+<div class="login" ng-controller="signInController">      
+    <div class="row">
+        <div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+            <div class="logo margin-top-30">
+                <!-- <img src="assets/images/logo.png" alt="AYNY"/> -->
+            </div>
+            <!-- start: LOGIN BOX -->
+            <div class="box-login">
+               <form name="signinForm" id="signinForm" ng-submit="signIn()">
+                <fieldset>
+                    <legend>Sign in to your account</legend>
+                    <div class="form-group">
+                                <span class="input-icon">
+                                    <input type="email" class="form-control" name="username" placeholder="Email Id" id="u_name" ng-model="email" required>
+                                    <i class="fa fa-user"></i> </span>
+                    </div>
+                    <div class="form-group form-actions">
+                                <span class="input-icon">
+                                    <input type="password" class="form-control password" name="password" placeholder="Password" id="u_password"  ng-model="password" required>
+                                    <i class="fa fa-lock"></i>
+                                   
+                                    </span>
+                    </div>
+                    <div class="form-actions">  
+                        <button type="submit" class="btn btn-primary pull-right" ng-disabled="!signinForm.$valid">
+                            Login <i class="fa fa-arrow-circle-right"></i>
+                        </button>
+                    </div>
+                    <div class="new-account">
+                    &nbsp;   &nbsp; &nbsp;   &nbsp;     <a href="#signup">Create an account</a>             
+                   
+                    </div>
+                    <div class="orbutton">OR</div>
+                    <div >
+                        <div class="col-xs-6">
+                    <a href="http://localhost:1337/auth/facebook"><img src="./content/img/login-with-facebook.jpg" /></a>
+                    </div>
+                    <br/>
+                    <div class="col-xs-6">
+                    <a href="http://localhost:1337/auth/google"><img class="google" src="./content/img/google-icon.jpg"/></a>
+                    </div>
+                    </div>
+                </fieldset>
+                </form>
+                <!-- start: COPYRIGHT -->
+                
+                <!-- end: COPYRIGHT -->
+            </div>
+            <!-- end: LOGIN BOX -->
+        </div>
+    </div>
+    <!-- end: LOGIN -->
+</div>

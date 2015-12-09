@@ -1,0 +1,38 @@
+ <div layout="row" layout-align="center center" ng-controller="SignInController">
+  <md-card class="signInCard">
+    <div layout="row" class="signInHeader">
+        <h2>Sign In</h2>
+    </div>
+    <md-card-content>
+      <form name="signinForm" ng-submit="signIn()">
+        <div layout="row">
+          <md-input-container flex>
+            <label class="labelTag">E-mail</label>
+            <input type="email" ng-model="email" required />
+          </md-input-container>
+        </div>
+        <div layout="row">
+          <md-input-container flex>
+            <label class="labelTag">Password</label>
+            <input type="password" ng-model="password" required />
+          </md-input-container>
+        </div>
+        <div layout="row">
+          <div flex="29">
+            <md-button class="md-raised md-primary">Submit</md-button>
+          </div>
+          <div flex="1"></div>
+          <div flex="70">
+            <a href="#/forgot">Forgot your password?</a>
+          </div>  
+        </div>
+      </form>
+      <div layout="row" ng-hide="!msg">
+        <center>{{msg}}</center>
+      </div>
+      <div layout="row" class="signUpLink">
+        You are a new user.<a href="#/signup">&nbsp;Sign up here</a>
+      </div>  
+    </md-card-content>
+  </md-card>
+</div>

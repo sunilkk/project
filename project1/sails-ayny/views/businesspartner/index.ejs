@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row adminDiv col-sm-8">
+        <center>
+            <h3><b>User Display</b></h3><br/>
+            <table class="table adminTable">
+                <tr>
+                    <th>Name</th>
+                    <th>Email ID</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                </tr>
+                <% _.each(users, function(user) { %>
+                    <tr>
+                        <td><%= user.additionalName %></td>
+                        <td><%= user.emailid %></td>
+                        <td><%= user.gender %></td>  
+                        <td><%= user.birthDate %></td> 
+                    </tr>
+                <% }) %>
+            </table>
+        </center>
+    </div>
+</div>

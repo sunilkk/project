@@ -1,0 +1,82 @@
+<div layout="row" layout-align="center center" ng-controller="SignUpController">
+  <md-card class="signUpCard">
+    <div layout="row" class="signInHeader">
+        <h2>Sign Up</h2>
+    </div>
+    <md-card-content>
+      <form name="signupForm" id="signupForm" ng-submit="create()">
+        <div layout="row">
+          <md-input-container flex>
+            <label class="labelTag">Name</label>
+            <input name="name" ng-model="name" required>
+          </md-input-container>
+        </div>
+        <div layout="row">
+          <md-input-container flex>
+            <label class="labelTag">E-mail</label>
+            <input type="email" name="email" ng-model="email" required>
+          </md-input-container>
+        </div>
+        <div layout="row">
+          <md-radio-group name="gender" ng-model="gender" class="radioButtonGroup">
+            <md-radio-button  value="Male" class="radioButton">Male</md-radio-button>
+            <md-radio-button value="Female" class="radioButton">Female </md-radio-button>
+          </md-radio-group>
+        </div>
+
+        <div layout="row" id="birthDayDiv">
+          <label class="labelTag">Birthday</label>
+        </div> 
+
+        <div layout="row">
+        <div flex="30">
+          <md-select ng-model="Month" placeholder="Month">
+            <md-option ng-value="m.id" ng-repeat="m in month">{{ m.name }}</md-option>
+          </md-select>
+        </div>  
+        <div flex="30">
+          <md-select ng-model="Day" placeholder="Day">
+            <md-option ng-value="d" ng-repeat="d in day">{{ d }}</md-option>
+          </md-select>
+        </div>
+        <div flex="30"> 
+          <md-select ng-model="Year" placeholder="Year">
+            <md-option ng-value="y" ng-repeat="y in year">{{ y }}</md-option>
+          </md-select>
+        </div>
+        </div>
+
+        <div layout="row">
+          <md-input-container flex>
+            <label class="labelTag">Password</label>
+            <input type="password" name="password" ng-model="password" ng-minlength="4" ng-maxlength="6" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/" required />
+          </md-input-container>
+        </div>
+        <div layout="row">
+          <span class="help-block errmsg-font" ng-show="!signupForm.password.$error.required && (signupForm.password.$error.minlength || signupForm.password.$error.maxlength) && signupForm.password.$dirty">Passwords must be between 8 and 20 characters.</span>
+          <span class="help-block errmsg-font" ng-show="!signupForm.password.$error.required && !signupForm.password.$error.minlength &&!signupForm.password.$error.maxlength && signupForm.password.$error.pattern && signupForm.password.$dirty">Must contain one lower, uppercase letter &amp; a number, and one special character.</span>
+        </div>
+         
+        <div layout="row">
+          <md-input-container flex>
+            <label class="labelTag">Confirm Password</label>
+            <input type="password" ng-model="passwordConfirm" data-match="password" name="password_c" required/>
+          </md-input-container>
+        </div>
+
+        <div layout="row">
+          <span class="help-block errmsg-font" ng-show="signupForm.password_c.$error.match && signupForm.password_c.$dirty">Fields do not match!</span>
+          <span class="help-block errmsg-font" ng-show="signupForm.password_c.$invalid.match">Fields need data!</span>
+        </div>
+
+        <div layout="row">
+          <md-button class="md-raised md-primary" ng-disabled="!signupForm.$valid">Submit</md-button>
+        </div>
+          
+      </form>
+      <div layout="row" ng-hide="!msg">
+        <center>{{msg}}</center>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>
